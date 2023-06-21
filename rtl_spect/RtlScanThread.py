@@ -20,7 +20,7 @@ class RtlScanThread(QThread):
         continuous: bool,
         repeats: int,
         ppm: int,
-        line_buffer_len: int = 10,
+        line_buffer_len: int = None,
         parent=None,
         **kwargs,
     ):
@@ -38,7 +38,11 @@ class RtlScanThread(QThread):
             self.args.append("-c")
         for k, v in kwargs.items():
             self.args.append(f"--{k} {v}")
-        self.line_buffer_len = line_buffer_len
+        
+        if line_buffer_len is None:
+            self.line_buffer_len = bins * 10 / repeats
+        else:
+            self.line_buffer_len = line_buffer_len
 
     def run(self):
         proc = subprocess.Popen(

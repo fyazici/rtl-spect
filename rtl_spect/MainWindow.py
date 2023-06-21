@@ -71,7 +71,7 @@ class MainWindow(QMainWindow):
         self.spin_rbw.setDecimals(3)
         self.spin_rbw.setMinimum(1)
         self.spin_rbw.setMaximum(3200)
-        self.spin_rbw.setValue(100)
+        self.spin_rbw.setValue(10)
 
         self.spin_rate = QDoubleSpinBox()
         self.spin_rate.setMinimumSize(75, 0)
@@ -91,8 +91,8 @@ class MainWindow(QMainWindow):
         self.spin_repeats.setMinimumSize(75, 0)
         self.spin_repeats.setDecimals(0)
         self.spin_repeats.setMinimum(1)
-        self.spin_repeats.setMaximum(100)
-        self.spin_repeats.setValue(10)
+        self.spin_repeats.setMaximum(1000)
+        self.spin_repeats.setValue(100)
 
         self.spin_ppm = QDoubleSpinBox()
         self.spin_ppm.setMinimumSize(75, 0)
